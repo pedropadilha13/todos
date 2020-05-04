@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Todo</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label>Add you todo</label>
+        <input autofocus />
+      </div>
+      <button type="submit">Add</button>
+    </form>
+    <script>
+      document.querySelector('form').addEventListener('submit', e => {
+        e.preventDefault();
+        console.log('lalala submit');
+        const { value } = document.querySelector('input');
+        ipcRenderer.send('todo:add', value);
+      });
+    </script>
+  </body>
+</html>
